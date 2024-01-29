@@ -43,7 +43,39 @@ const Advantage = sequelize.define("advantages", {
     }
 })
 
+
+const Phone = sequelize.define("phones", {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    phone: {
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: false
+    }
+})
+
+const Social = sequelize.define("solials", {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    urlIcon: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    link: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }
+})
+
 module.exports = {
     Category,
-    Advantage
+    Advantage,
+    Phone,
+    Social
 }

@@ -28,15 +28,12 @@ class CategoryController {
     async createOne(req, res) {
         const { title, urlImage } = req.body
         try {
-
             const errors = this.validateData([
                 {condition: title.length > 3, message: "Длина названия должна быть больше трех символов!"},
                 {condition: /(http|https):\/\//.test(urlImage), message: "Некоррекный url!"}
             ])
             
-            if (errors.length > 0) {
-                throw new Error(JSON.stringify(errors))
-            }
+            if (errors.length > 0) throw new Error(JSON.stringify(errors))
 
             const category = await this.categoryService.createOne({title, urlImage})
             res.status(200).json(category)
