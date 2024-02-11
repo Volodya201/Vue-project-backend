@@ -57,7 +57,7 @@ const Phone = sequelize.define("phones", {
     }
 })
 
-const Social = sequelize.define("solials", {
+const Social = sequelize.define("socials", {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,

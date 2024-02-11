@@ -24,6 +24,7 @@ class PhoneController {
             const savedPhones = await this.service.savePhones(phones)
             res.json(savedPhones).status(201)
         } catch (error) {
+            console.log(error)
             res.status(500).json({message: "Непредвиденная ошибка"})
         }
     }
