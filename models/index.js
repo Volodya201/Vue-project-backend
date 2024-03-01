@@ -95,6 +95,14 @@ const Users = sequelize.define("users", {
         type: DataTypes.STRING,
         unique: false,
         allowNull: false
+    },
+    isActivated: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+    },
+    activationKey: {
+        type: DataTypes.TEXT,
+        allowNull: false
     }
 })
 
@@ -102,5 +110,6 @@ module.exports = {
     Category,
     Advantage,
     Phone,
-    Social
+    Social,
+    Users
 }

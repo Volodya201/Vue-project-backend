@@ -3,10 +3,15 @@ const app = express()
 const cors = require("cors")
 const sequelize = require("./config/index.js")
 const router = require("./router/index")
-const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser")
 
+const corsOptions = {
+    origin: true,
+    credentials: true,
+}
 
-app.use(cors())
+app.use(cookieParser())
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use(router)
 

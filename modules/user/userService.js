@@ -15,8 +15,12 @@ class UserService {
         return await this.userRepo.findOne({where: {email}})
     }
 
+    async getOneUsingActivationKey(activationKey) {
+        return await this.userRepo.findOne({where: {activationKey}})
+    }
+
     async createOne(user) {
-        await this.userRepo.createOne({...user})
+        return await this.userRepo.create({...user})
     }
 
     async deleteOne(id) {
