@@ -6,7 +6,7 @@ class TokenService {
     }
 
     generateTokens(userData) {
-        const accessToken = this.jwt.sign(userData, "accessToken", {expiresIn: "1h"})
+        const accessToken = this.jwt.sign(userData, "accessToken", {expiresIn: "10s"})
         const refreshToken = this.jwt.sign(userData, "refreshToken", {expiresIn: "1h"})
 
         return {

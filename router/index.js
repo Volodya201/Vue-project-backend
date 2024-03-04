@@ -6,9 +6,11 @@ const phoneRoutes = require("../modules/phones/phoneRoutes")
 const socialRoutes = require("../modules/socials/socialRoutes")
 const authRoutes = require("../modules/auth/authRoutes")
 
+const authMiddleware = require("../middlewares/authMiddleware")
+
 const router = Router()
 
-router.use("/categories", categoryRoutes)
+router.use("/categories", authMiddleware, categoryRoutes)
 router.use("/advantages", advantageRoutes)
 router.use("/phones", phoneRoutes)
 router.use("/socials", socialRoutes)

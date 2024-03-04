@@ -103,6 +103,14 @@ const Users = sequelize.define("users", {
     activationKey: {
         type: DataTypes.TEXT,
         allowNull: false
+    },
+    newPassword: {
+        type: DataTypes.STRING,
+        unique: false
+    },
+    confirmKey: {
+        type: DataTypes.TEXT,
+        allowNull: true
     }
 })
 

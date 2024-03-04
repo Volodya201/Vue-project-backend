@@ -19,6 +19,10 @@ class UserService {
         return await this.userRepo.findOne({where: {activationKey}})
     }
 
+    async getOneUsingConfirmKey(confirmKey) {
+        return await this.userRepo.findOne({where: {confirmKey}})
+    }
+
     async createOne(user) {
         return await this.userRepo.create({...user})
     }

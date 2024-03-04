@@ -44,26 +44,19 @@ class AuthService {
     async activateUser(activationKey) {
         const user = await this.userService.getOneUsingActivationKey(activationKey)
 
-        await user.update({isActivated: true})
+        await user.update({isActivated: true, activationKey: ""})
 
         console.log("user", user)
 
         return user
     }
 
+    async refreshTokens(refreshToken) {
+        const {id, email, username} = this.tokenService.validateRefreshToken(refreshToken)
 
+        const tokens = this.tokenService.generateTokens({id, email, username})
 
-    generatePassword() {
-        const baseForPassword = "qwertyuiopasdfghjklzxcvbnm123456789QWERTYUIOPASDFGHJKLZXCVBNM"
-        const newPassword = ""
-
-        for (let index = 0; index < 6; index++) {
-            const randomIndex = Math.floor(Math.random() * baseForPassword.length)
-
-            newPassword += baseForPassword[randomIndex]
-        }
-
-        return newPassword
+        return tokens
     }
 }
 
